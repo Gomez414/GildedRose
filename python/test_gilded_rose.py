@@ -12,7 +12,7 @@ The file tests the upgrade quality cases for the Gilded Rose Inn.
 # -*- coding: utf-8 -*-
 import unittest
 
-from gilded_rose import Item, GildedRose
+from my_gilded_rose import Item, GildedRose
 
 
 class GildedRoseTest(unittest.TestCase):
@@ -194,7 +194,7 @@ class GildedRoseTest(unittest.TestCase):
 
     def test_backstage_update_quality_10(self):
         """
-        Test to see if backstage passes update correctly after one day (sell_in between 10 and 5).
+        Test to see if backstage passes update correctly after one day (sell_in between 11 and 5).
         
         """
         # Arrange
@@ -219,13 +219,13 @@ class GildedRoseTest(unittest.TestCase):
 
     def test_backstage_update_quality_5(self):
         """
-        Test to see if backstage passes update correctly after one day (sell_in between 10 and 5).
+        Test to see if backstage passes update correctly after one day (sell_in between 5 and 0).
         
         """
         # Arrange
 
-        og_items = [Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=48)]
-        items = [Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=48)]
+        og_items = [Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=47)]
+        items = [Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=47)]
         gilded_rose = GildedRose(items)
 
         # Act
@@ -239,7 +239,7 @@ class GildedRoseTest(unittest.TestCase):
 
         for expected_item, actual_item in zip(og_items, items):
             self.assertEqual(expected_item.sell_in - 1, actual_item.sell_in)
-            self.assertEqual(expected_item.quality + 2, actual_item.quality)
+            self.assertEqual(expected_item.quality + 3, actual_item.quality)
 
 
     def test_backstage_update_quality_expired(self):
