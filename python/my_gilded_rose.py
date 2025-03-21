@@ -73,7 +73,7 @@ class Item:
 
 
 class AgedBrie(Item):
-    """ Initialize item to have the update status of Aged Brie. """
+    """ Initialize item to have the updated status of Aged Brie. """
 
     def __init__(self, name, sell_in, quality):
         """ Ensure the Aged Brie item still has item characteristics. """
@@ -93,7 +93,7 @@ class AgedBrie(Item):
         self.quality = min(50, self.quality)
 
 class BackstagePass(Item):
-    """ Initialize item to have the update status of a Backstage Pass. """
+    """ Initialize item to have the updated status of a Backstage Pass. """
 
     def __init__(self, name, sell_in, quality):
         """ Ensure the Backstage Pass item still has item characteristics. """
@@ -125,7 +125,7 @@ class BackstagePass(Item):
                 self.quality = 0
 
 class Sulfuras(Item):
-    """ Initialize item to have the update status of a Sulfuras. """
+    """ Initialize item to have the updated status of a Sulfuras. """
 
     def __init__(self, name, sell_in, quality):
         """ Ensure the Sulfuras item still has item characteristics. """
@@ -138,7 +138,7 @@ class Sulfuras(Item):
         pass
 
 class Conjured(Item):
-    """ Inititialize item to have the update status of a Conjured item. """
+    """ Initialize item to have the update status of a Conjured item. """
 
     def __init__(self, name, sell_in, quality):
         """ Ensure the Conjured item still has item characteristics. """
@@ -158,4 +158,5 @@ class Conjured(Item):
         if self.quality < 0:
             self.quality = 0
             
-        self.quality = min(50, self.quality)
+        if self.quality > 50:
+            self.quality = 50
